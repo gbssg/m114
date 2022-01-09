@@ -31,11 +31,22 @@ theme:
   features:
     - navigation.instant
     - toc.integrate
+    - navigation.instant
+
+plugins:
+  - mermaid2
 
 markdown_extensions:
   - pymdownx.highlight:
       linenums_style: pymdownx-inline
       use_pygments: true
+  - pymdownx.critic
+  - pymdownx.caret
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.tilde
+  - attr_list
+  - md_in_html
   - pymdownx.inlinehilite
   - pymdownx.superfences
   - attr_list
@@ -51,6 +62,13 @@ markdown_extensions:
   - toc:
       permalink: true
       toc_depth: 2
+
+  - pymdownx.superfences:
+      # make exceptions to highlighting of code:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:mermaid2.fence_mermaid
 
 extra_javascript:
   - javascript/config.js
